@@ -19,17 +19,31 @@ ARCHITECTURE machine_arch OF machine IS
 
   COMPONENT control IS
     PORT (
-      reset : IN STD_LOGIC,
-      clock : IN STD_LOGIC,
-      coin : IN STD_LOGIC,
-      totLessThan : IN STD_LOGIC,
-      totLoad : OUT STD_LOGIC,
-      totClear : OUT STD_LOGIC,
+      reset : IN STD_LOGIC;
+      clock : IN STD_LOGIC;
+      coin : IN STD_LOGIC;
+      totLessThanPrice : IN STD_LOGIC;
+      totLoad : OUT STD_LOGIC;
+      totClear : OUT STD_LOGIC;
       detect : OUT STD_LOGIC
     );
   END COMPONENT control;
 
-  SIGNAL totLessThan : STD_LOGIC;
+  COMPONENT operative IS
+    PORT (
+      reset : IN STD_LOGIC;
+      clock : IN STD_LOGIC;
+
+      amount : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      totLoad : IN STD_LOGIC;
+      totClear : IN STD_LOGIC;
+
+      totLessThanPrice : OUT STD_LOGIC
+    );
+  END COMPONENT operative;
+
+  SIGNAL totLessThanPrice : STD_LOGIC;
   SIGNAL totLoad : STD_LOGIC;
   SIGNAL totClear : STD_LOGIC;
 
@@ -39,10 +53,20 @@ BEGIN
     reset => reset,
     clock => clock,
     coin => coin,
-    totLessThan => totLessThan,
+    totLessThanPrice => totLessThanPrice,
     totLoad => totLoad,
     totClear => totClear,
     detect => detect
+  );
+
+  PO : operative PORT MAP(
+    reset => reset,
+    clock => clock,
+    amount => amount,
+    price => price,
+    totLoad => totLoad,
+    totClear => totClear,
+    totLessThanPrice => totLessThanPrice
   );
 
 END ARCHITECTURE machine_arch;

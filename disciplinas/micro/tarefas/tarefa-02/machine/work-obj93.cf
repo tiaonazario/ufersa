@@ -1,7 +1,25 @@
 v 4
+file . "operative.vhd" "45096e9cc3b098ff1437e9bbaa05787c35fad950" "20230310210702.876":
+  entity operative at 1( 0) + 0 on 49;
+  architecture operative_arch of operative at 19( 359) + 0 on 50;
+file . "comparator.vhd" "b9471402b88a38ef6a8e34342638f12eb3dd0d40" "20230310210632.370":
+  entity comparator at 1( 0) + 0 on 45;
+  architecture comparator_arch of comparator at 14( 248) + 0 on 46;
 file . "adder_tb.vhd" "41c072b7e992ebb4dde18d3a16b622fa58608791" "20230310180036.555":
   entity adder_tb at 1( 0) + 0 on 13;
   architecture adder_tb_arch of adder_tb at 8( 104) + 0 on 14;
-file . "adder.vhd" "2577fd6f2d6a738d4123e00da72bd932e4a38f65" "20230310180030.022":
-  entity adder at 1( 0) + 0 on 11;
-  architecture adder_arch of adder at 14( 245) + 0 on 12;
+file . "adder.vhd" "2577fd6f2d6a738d4123e00da72bd932e4a38f65" "20230310210625.416":
+  entity adder at 1( 0) + 0 on 43;
+  architecture adder_arch of adder at 14( 245) + 0 on 44;
+file . "control.vhd" "612bb1177d582a4021590077d57c51233376534d" "20230310210640.550":
+  entity control at 1( 0) + 0 on 47;
+  architecture control_arch of control at 19( 318) + 0 on 48;
+file . "register_price.vhd" "bcb9b4fdec2c46781b3470ce1689757d6a077020" "20230310210711.945":
+  entity register_price at 1( 0) + 0 on 51;
+  architecture register_price_arch of register_price at 18( 327) + 0 on 52;
+file . "machine.vhd" "f7acd65d9060225c242ce37b41d45a48a34a1155" "20230310210720.626":
+  entity machine at 1( 0) + 0 on 53;
+  architecture machine_arch of machine at 18( 313) + 0 on 54;
+file . "machine_tb.vhd" "4610e4ca7ba9dfac732f2e46564e1c7a87c3e8f5" "20230310210747.827":
+  entity machine_tb at 1( 0) + 0 on 57;
+  architecture machine_tb_arch of machine_tb at 8( 108) + 0 on 58;
