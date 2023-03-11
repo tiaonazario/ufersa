@@ -8,8 +8,8 @@ ENTITY machine IS
     clock : IN STD_LOGIC;
 
     coin : IN STD_LOGIC;
-    amount : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    price : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 
     change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     detect : OUT STD_LOGIC
@@ -36,8 +36,8 @@ ARCHITECTURE machine_arch OF machine IS
       reset : IN STD_LOGIC;
       clock : IN STD_LOGIC;
 
-      amount : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      price : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       totLoad : IN STD_LOGIC;
       totClear : IN STD_LOGIC;
 

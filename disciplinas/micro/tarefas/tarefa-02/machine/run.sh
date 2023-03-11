@@ -1,11 +1,16 @@
 # chmod +x run.sh
+
+set -e
+
 echo "Step 1 - Analysis of description files."
 
 ghdl -a adder.vhd
+ghdl -a coin_decoder.vhd
 ghdl -a comparator.vhd
 ghdl -a control.vhd
 ghdl -a machine.vhd
 ghdl -a operative.vhd
+ghdl -a price_decoder.vhd
 ghdl -a register_change.vhd
 ghdl -a register_price.vhd
 ghdl -a subtractor.vhd

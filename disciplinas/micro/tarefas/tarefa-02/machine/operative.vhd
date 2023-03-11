@@ -7,8 +7,8 @@ ENTITY operative IS
     reset : IN STD_LOGIC;
     clock : IN STD_LOGIC;
 
-    amount : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    price : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     totLoad : IN STD_LOGIC;
     totClear : IN STD_LOGIC;
 
@@ -18,6 +18,22 @@ ENTITY operative IS
 END operative;
 
 ARCHITECTURE operative_arch OF operative IS
+
+  COMPONENT coin_decoder IS
+    PORT (
+      amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+      amount_decoded : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT coin_decoder;
+
+  COMPONENT price_decoder IS
+    PORT (
+      price : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+      price_decoded : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT price_decoder;
 
   COMPONENT register_change IS
     PORT (
@@ -75,8 +91,20 @@ ARCHITECTURE operative_arch OF operative IS
   SIGNAL totSubPrice : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL tot : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL lessThan : STD_LOGIC;
+  SIGNAL amount_decoded : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL price_decoded : STD_LOGIC_VECTOR(7 DOWNTO 0);
 
 BEGIN
+
+  deco_amount : coin_decoder PORT MAP(
+    amount => amount,
+    amount_decoded => amount_decoded
+  );
+
+  deco_price : price_decoder PORT MAP(
+    price => price,
+    price_decoded => price_decoded
+  );
 
   reg_change : register_change PORT MAP(
     reset => reset,
@@ -98,19 +126,19 @@ BEGIN
 
   compare : comparator PORT MAP(
     tot => tot,
-    price => price,
+    price => price_decoded,
     totLessThanPrice => lessThan
   );
 
   subtract : subtractor PORT MAP(
     tot => tot,
-    price => price,
+    price => price_decoded,
     sub => totSubPrice
   );
 
   call_adder : adder PORT MAP(
     tot => tot,
-    amount => amount,
+    amount => amount_decoded,
     sum => sum
   );
 
