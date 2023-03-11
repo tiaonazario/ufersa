@@ -6,6 +6,7 @@ ghdl -a comparator.vhd
 ghdl -a control.vhd
 ghdl -a machine.vhd
 ghdl -a operative.vhd
+ghdl -a register_change.vhd
 ghdl -a register_price.vhd
 ghdl -a subtractor.vhd
 

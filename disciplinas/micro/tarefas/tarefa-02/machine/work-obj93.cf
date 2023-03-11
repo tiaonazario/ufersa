@@ -1,0 +1,28 @@
+v 4
+file . "register_change.vhd" "1a0c1fe9c7d7cd89016b0b8b0e350d6bbb50974c" "20230311165053.064":
+  entity register_change at 1( 0) + 0 on 119;
+  architecture register_change_arch of register_change at 17( 320) + 0 on 120;
+file . "machine_tb.vhd" "ce34c952717cf7860e1405c3f783f206639b83e1" "20230311165053.181":
+  entity machine_tb at 1( 0) + 0 on 125;
+  architecture machine_tb_arch of machine_tb at 8( 108) + 0 on 126;
+file . "register_price.vhd" "bcb9b4fdec2c46781b3470ce1689757d6a077020" "20230311165053.104":
+  entity register_price at 1( 0) + 0 on 121;
+  architecture register_price_arch of register_price at 18( 327) + 0 on 122;
+file . "machine.vhd" "4c18ebf4d3efe07be564c1a9eb2c158abb8868b6" "20230311165052.992":
+  entity machine at 1( 0) + 0 on 115;
+  architecture machine_arch of machine at 19( 360) + 0 on 116;
+file . "comparator.vhd" "b9471402b88a38ef6a8e34342638f12eb3dd0d40" "20230311165052.848":
+  entity comparator at 1( 0) + 0 on 111;
+  architecture comparator_arch of comparator at 14( 248) + 0 on 112;
+file . "adder.vhd" "2577fd6f2d6a738d4123e00da72bd932e4a38f65" "20230311165052.809":
+  entity adder at 1( 0) + 0 on 109;
+  architecture adder_arch of adder at 14( 245) + 0 on 110;
+file . "control.vhd" "612bb1177d582a4021590077d57c51233376534d" "20230311165052.920":
+  entity control at 1( 0) + 0 on 113;
+  architecture control_arch of control at 19( 318) + 0 on 114;
+file . "operative.vhd" "b6305f5fd2cf9c45a12e26e1ba1928a36b43e4a2" "20230311165053.028":
+  entity operative at 1( 0) + 0 on 117;
+  architecture operative_arch of operative at 20( 406) + 0 on 118;
+file . "subtractor.vhd" "7405f5ad45d1da47458052cdd03494b8a4ca30ec" "20230311165053.140":
+  entity subtractor at 1( 0) + 0 on 123;
+  architecture subtractor_arch of subtractor at 14( 261) + 0 on 124;

@@ -12,12 +12,24 @@ ENTITY operative IS
     totLoad : IN STD_LOGIC;
     totClear : IN STD_LOGIC;
 
-    totSubPrice : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     totLessThanPrice : OUT STD_LOGIC
   );
 END operative;
 
 ARCHITECTURE operative_arch OF operative IS
+
+  COMPONENT register_change IS
+    PORT (
+      reset : IN STD_LOGIC;
+      clock : IN STD_LOGIC;
+
+      totLessThanPrice : IN STD_LOGIC;
+      totSubPrice : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+      change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT register_change;
 
   COMPONENT register_price IS
     PORT (
@@ -60,11 +72,22 @@ ARCHITECTURE operative_arch OF operative IS
   END COMPONENT adder;
 
   SIGNAL sum : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL totSubPrice : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL tot : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL lessThan : STD_LOGIC;
 
 BEGIN
 
-  reg : register_price PORT MAP(
+  reg_change : register_change PORT MAP(
+    reset => reset,
+    clock => clock,
+
+    totLessThanPrice => lessThan,
+    totSubPrice => totSubPrice,
+    change => change
+  );
+
+  reg_price : register_price PORT MAP(
     reset => reset,
     clock => clock,
     totLoad => totLoad,
@@ -76,7 +99,7 @@ BEGIN
   compare : comparator PORT MAP(
     tot => tot,
     price => price,
-    totLessThanPrice => totLessThanPrice
+    totLessThanPrice => lessThan
   );
 
   subtract : subtractor PORT MAP(
@@ -90,5 +113,7 @@ BEGIN
     amount => amount,
     sum => sum
   );
+
+  totLessThanPrice <= lessThan;
 
 END ARCHITECTURE operative_arch;

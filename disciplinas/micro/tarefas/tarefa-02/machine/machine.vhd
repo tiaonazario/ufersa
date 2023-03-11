@@ -24,11 +24,9 @@ ARCHITECTURE machine_arch OF machine IS
       clock : IN STD_LOGIC;
       coin : IN STD_LOGIC;
       totLessThanPrice : IN STD_LOGIC;
-      totSubPrice : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
       totLoad : OUT STD_LOGIC;
       totClear : OUT STD_LOGIC;
-      change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       detect : OUT STD_LOGIC
     );
   END COMPONENT control;
@@ -43,13 +41,12 @@ ARCHITECTURE machine_arch OF machine IS
       totLoad : IN STD_LOGIC;
       totClear : IN STD_LOGIC;
 
-      totSubPrice : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       totLessThanPrice : OUT STD_LOGIC
     );
   END COMPONENT operative;
 
   SIGNAL totLessThanPrice : STD_LOGIC;
-  SIGNAL totSubPrice : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL totLoad : STD_LOGIC;
   SIGNAL totClear : STD_LOGIC;
 
@@ -60,10 +57,8 @@ BEGIN
     clock => clock,
     coin => coin,
     totLessThanPrice => totLessThanPrice,
-    totSubPrice => totSubPrice,
     totLoad => totLoad,
     totClear => totClear,
-    change => change,
     detect => detect
   );
 
@@ -74,7 +69,7 @@ BEGIN
     price => price,
     totLoad => totLoad,
     totClear => totClear,
-    totSubPrice => totSubPrice,
+    change => change,
     totLessThanPrice => totLessThanPrice
   );
 
