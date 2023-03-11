@@ -8,10 +8,12 @@ ENTITY control IS
     clock : IN STD_LOGIC;
 
     coin : IN STD_LOGIC;
+    totSubPrice : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     totLessThanPrice : IN STD_LOGIC;
 
     totLoad : OUT STD_LOGIC;
     totClear : OUT STD_LOGIC;
+    change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     detect : OUT STD_LOGIC
   );
 END control;
@@ -34,17 +36,19 @@ BEGIN
     END IF;
   END PROCESS setSourceState;
 
-  setNextState : PROCESS (sourceState, coin, totLessThanPrice)
+  setNextState : PROCESS (sourceState, coin, totLessThanPrice, totSubPrice)
   BEGIN
     CASE sourceState IS
       WHEN INICIO => nextState <= ESPERAR;
         totLoad <= '0';
         totClear <= '1';
+        change <= b"00000000";
         detect <= '0';
 
       WHEN ESPERAR => nextState <= FORNECER;
         totLoad <= '0';
         totClear <= '0';
+        change <= b"00000000";
         detect <= '0';
 
         IF coin = '1' THEN
@@ -63,6 +67,7 @@ BEGIN
       WHEN FORNECER => nextState <= INICIO;
         totLoad <= '0';
         totClear <= '0';
+        change <= totSubPrice;
         detect <= '1';
 
     END CASE;

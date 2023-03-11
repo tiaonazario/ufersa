@@ -16,7 +16,6 @@ ARCHITECTURE machine_tb_arch OF machine_tb IS
       amount : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-      change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       detect : OUT STD_LOGIC
     );
   END COMPONENT machine;
@@ -26,7 +25,6 @@ ARCHITECTURE machine_tb_arch OF machine_tb IS
   SIGNAL coin : STD_LOGIC;
   SIGNAL amount : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL price : STD_LOGIC_VECTOR(7 DOWNTO 0);
-  SIGNAL change : STD_LOGIC_VECTOR(7 DOWNTO 0);
   SIGNAL detect : STD_LOGIC;
 
 BEGIN
@@ -37,7 +35,6 @@ BEGIN
     coin => coin,
     amount => amount,
     price => price,
-    change => change,
     detect => detect
   );
 
@@ -50,7 +47,7 @@ BEGIN
     clock <= '0';
     coin <= '0';
     amount <= b"00000000";
-    price <= b"00000011";
+    price <= b"00000101";
     WAIT FOR 5 ns;
 
     reset <= '0';
@@ -60,9 +57,51 @@ BEGIN
     WAIT FOR 5 ns;
     clock <= NOT clock; -- subida
 
-    amount <= b"00000010";
+    amount <= b"00000001";
     coin <= '1';
 
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- SOMAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- ESPERAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- SOMAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- ESPERAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- SOMAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- ESPERAR
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
     WAIT FOR 10 ns;
     clock <= NOT clock; -- decida
 
@@ -106,6 +145,13 @@ BEGIN
 
     -- ..................................
     -- INICIO
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- subida
+    WAIT FOR 10 ns;
+    clock <= NOT clock; -- decida
+
+    -- ..................................
+    -- ESPERAR
     WAIT FOR 10 ns;
     clock <= NOT clock; -- subida
     WAIT FOR 10 ns;

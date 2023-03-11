@@ -12,6 +12,7 @@ ENTITY operative IS
     totLoad : IN STD_LOGIC;
     totClear : IN STD_LOGIC;
 
+    totSubPrice : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     totLessThanPrice : OUT STD_LOGIC
   );
 END operative;
@@ -27,7 +28,7 @@ ARCHITECTURE operative_arch OF operative IS
       totClear : IN STD_LOGIC;
       sum : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
-      tot : IN STD_LOGIC_VECTOR(7 DOWNTO 0)
+      tot : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
   END COMPONENT register_price;
 
@@ -39,6 +40,15 @@ ARCHITECTURE operative_arch OF operative IS
       totLessThanPrice : OUT STD_LOGIC
     );
   END COMPONENT comparator;
+
+  COMPONENT subtractor IS
+    PORT (
+      tot : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      price : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+      sub : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    );
+  END COMPONENT subtractor;
 
   COMPONENT adder IS
     PORT (
@@ -67,6 +77,12 @@ BEGIN
     tot => tot,
     price => price,
     totLessThanPrice => totLessThanPrice
+  );
+
+  subtract : subtractor PORT MAP(
+    tot => tot,
+    price => price,
+    sub => totSubPrice
   );
 
   call_adder : adder PORT MAP(
