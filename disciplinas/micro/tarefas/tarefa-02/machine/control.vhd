@@ -38,31 +38,28 @@ BEGIN
   BEGIN
     CASE sourceState IS
       WHEN INICIO => nextState <= ESPERAR;
-        totLoad <= '0';
         totClear <= '1';
+        totLoad <= '0';
         detect <= '0';
 
       WHEN ESPERAR => nextState <= FORNECER;
-        totLoad <= '0';
-        totClear <= '0';
-        detect <= '0';
-
-        IF coin = '1' THEN
+        IF coin = '1' AND totLessThanPrice = '1' THEN
           nextState <= SOMAR;
         ELSIF totLessThanPrice = '0' THEN
           nextState <= FORNECER;
+          totLoad <= '0';
         ELSE
           nextState <= ESPERAR;
         END IF;
 
       WHEN SOMAR => nextState <= ESPERAR;
-        totLoad <= '1';
         totClear <= '0';
+        totLoad <= '1';
         detect <= '0';
 
       WHEN FORNECER => nextState <= INICIO;
-        totLoad <= '0';
         totClear <= '0';
+        totLoad <= '0';
         detect <= '1';
 
     END CASE;

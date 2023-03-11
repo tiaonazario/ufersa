@@ -1,34 +1,40 @@
 v 4
-file . "coin_decoder.vhd" "138cb66c64eaa54600ca39baf1350b5921d6dfe5" "20230311185131.849":
-  entity coin_decoder at 1( 0) + 0 on 351;
-  architecture coin_decoder_arch of coin_decoder at 13( 234) + 0 on 352;
-file . "register_change.vhd" "1a0c1fe9c7d7cd89016b0b8b0e350d6bbb50974c" "20230311185132.037":
-  entity register_change at 1( 0) + 0 on 363;
-  architecture register_change_arch of register_change at 17( 320) + 0 on 364;
-file . "machine_tb.vhd" "f4a7e9a98f04d4ecaee70a86ecc74ee59f8ca549" "20230311185132.137":
-  entity machine_tb at 1( 0) + 0 on 369;
-  architecture machine_tb_arch of machine_tb at 8( 108) + 0 on 370;
-file . "register_price.vhd" "bcb9b4fdec2c46781b3470ce1689757d6a077020" "20230311185132.067":
-  entity register_price at 1( 0) + 0 on 365;
-  architecture register_price_arch of register_price at 18( 327) + 0 on 366;
-file . "machine.vhd" "c9c951fa38e1d48e4ffe2ba55e4e98c5b0214f2b" "20230311185131.947":
-  entity machine at 1( 0) + 0 on 357;
-  architecture machine_arch of machine at 19( 360) + 0 on 358;
-file . "comparator.vhd" "b9471402b88a38ef6a8e34342638f12eb3dd0d40" "20230311185131.889":
-  entity comparator at 1( 0) + 0 on 353;
-  architecture comparator_arch of comparator at 14( 248) + 0 on 354;
-file . "adder.vhd" "2577fd6f2d6a738d4123e00da72bd932e4a38f65" "20230311185131.779":
-  entity adder at 1( 0) + 0 on 349;
-  architecture adder_arch of adder at 14( 245) + 0 on 350;
-file . "control.vhd" "612bb1177d582a4021590077d57c51233376534d" "20230311185131.919":
-  entity control at 1( 0) + 0 on 355;
-  architecture control_arch of control at 19( 318) + 0 on 356;
-file . "operative.vhd" "0c52931ff2805ae4d6336c1e41cbb1417d31d6bf" "20230311185131.977":
-  entity operative at 1( 0) + 0 on 359;
-  architecture operative_arch of operative at 20( 406) + 0 on 360;
-file . "subtractor.vhd" "7405f5ad45d1da47458052cdd03494b8a4ca30ec" "20230311185132.096":
-  entity subtractor at 1( 0) + 0 on 367;
-  architecture subtractor_arch of subtractor at 14( 261) + 0 on 368;
-file . "price_decoder.vhd" "7805064f87dddd80a7527d40330bbaae17ff9b21" "20230311185132.006":
-  entity price_decoder at 1( 0) + 0 on 361;
-  architecture price_decoder_arch of price_decoder at 13( 227) + 0 on 362;
+file . "tot_register.vhd" "6fdf2c5f6f6bdd09b82fb1d300c91c305cc37ac3" "20230311215939.236":
+  entity tot_register at 1( 0) + 0 on 873;
+  architecture tot_register_arch of tot_register at 18( 323) + 0 on 874;
+file . "change_register.vhd" "396a8d10292ee36647bfe082818bc3bb07fa257e" "20230311215938.974":
+  entity change_register at 1( 0) + 0 on 857;
+  architecture change_register_arch of change_register at 18( 349) + 0 on 858;
+file . "price_decoder.vhd" "39439e05de20fedace808606073604fcd09f07e0" "20230311215939.177":
+  entity price_decoder at 1( 0) + 0 on 869;
+  architecture price_decoder_arch of price_decoder at 13( 227) + 0 on 870;
+file . "subtractor.vhd" "b72e872ee3459560f0b318e71a5165f676654ccc" "20230311215939.206":
+  entity subtractor at 1( 0) + 0 on 871;
+  architecture subtractor_arch of subtractor at 14( 261) + 0 on 872;
+file . "operative.vhd" "5105c61c9917219b69d17a45d30cbe6c3193fa38" "20230311215939.148":
+  entity operative at 1( 0) + 0 on 867;
+  architecture operative_arch of operative at 20( 406) + 0 on 868;
+file . "control.vhd" "20a48ad38ae02b61da1a4647bd3dd4e4fbf58d04" "20230311215939.088":
+  entity control at 1( 0) + 0 on 863;
+  architecture control_arch of control at 19( 318) + 0 on 864;
+file . "adder.vhd" "02970077a2cd99d7c91ed810b5a0d3c9af3d5486" "20230311215938.924":
+  entity adder at 1( 0) + 0 on 855;
+  architecture adder_arch of adder at 14( 245) + 0 on 856;
+file . "comparator.vhd" "ee1409d71e35f15c59f79d7b4b811aee2fd4d6d1" "20230311215939.057":
+  entity comparator at 1( 0) + 0 on 861;
+  architecture comparator_arch of comparator at 14( 248) + 0 on 862;
+file . "machine.vhd" "c9c951fa38e1d48e4ffe2ba55e4e98c5b0214f2b" "20230311215939.117":
+  entity machine at 1( 0) + 0 on 865;
+  architecture machine_arch of machine at 19( 360) + 0 on 866;
+file . "register_price.vhd" "bcb9b4fdec2c46781b3470ce1689757d6a077020" "20230311204019.494":
+  entity register_price at 1( 0) + 0 on 651;
+  architecture register_price_arch of register_price at 18( 327) + 0 on 652;
+file . "machine_tb.vhd" "cc6b6a6ffc8ba37a6313886e84579e6e461a089d" "20230311215939.276":
+  entity machine_tb at 1( 0) + 0 on 875;
+  architecture machine_tb_arch of machine_tb at 8( 108) + 0 on 876;
+file . "register_change.vhd" "1a0c1fe9c7d7cd89016b0b8b0e350d6bbb50974c" "20230311204019.462":
+  entity register_change at 1( 0) + 0 on 649;
+  architecture register_change_arch of register_change at 17( 320) + 0 on 650;
+file . "coin_decoder.vhd" "f8afcff46f1c68d52401e6d803695e4d8bb7426b" "20230311215939.016":
+  entity coin_decoder at 1( 0) + 0 on 859;
+  architecture coin_decoder_arch of coin_decoder at 13( 234) + 0 on 860;

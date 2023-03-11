@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY register_price IS
+ENTITY tot_register IS
   PORT (
     reset : IN STD_LOGIC;
     clock : IN STD_LOGIC;
@@ -13,9 +13,9 @@ ENTITY register_price IS
 
     tot : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
-END register_price;
+END tot_register;
 
-ARCHITECTURE register_price_arch OF register_price IS
+ARCHITECTURE tot_register_arch OF tot_register IS
 BEGIN
 
   PROCESS (reset, clock, totLoad, totClear, sum)
@@ -32,4 +32,4 @@ BEGIN
     END IF;
   END PROCESS;
 
-END ARCHITECTURE register_price_arch;
+END ARCHITECTURE tot_register_arch;

@@ -14,6 +14,10 @@ END ENTITY subtractor;
 ARCHITECTURE subtractor_arch OF subtractor IS
 
 BEGIN
-  sub <= STD_LOGIC_VECTOR(unsigned(tot) - unsigned(price));
+
+  PROCESS (tot, price)
+  BEGIN
+    sub <= STD_LOGIC_VECTOR(unsigned(tot) - unsigned(price));
+  END PROCESS;
 
 END ARCHITECTURE subtractor_arch;

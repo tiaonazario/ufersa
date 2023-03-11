@@ -35,19 +35,20 @@ ARCHITECTURE operative_arch OF operative IS
     );
   END COMPONENT price_decoder;
 
-  COMPONENT register_change IS
+  COMPONENT change_register IS
     PORT (
       reset : IN STD_LOGIC;
       clock : IN STD_LOGIC;
 
+      totClear : IN STD_LOGIC;
       totLessThanPrice : IN STD_LOGIC;
       totSubPrice : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
       change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
-  END COMPONENT register_change;
+  END COMPONENT change_register;
 
-  COMPONENT register_price IS
+  COMPONENT tot_register IS
     PORT (
       reset : IN STD_LOGIC;
       clock : IN STD_LOGIC;
@@ -58,7 +59,7 @@ ARCHITECTURE operative_arch OF operative IS
 
       tot : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
-  END COMPONENT register_price;
+  END COMPONENT tot_register;
 
   COMPONENT comparator IS
     PORT (
@@ -106,16 +107,16 @@ BEGIN
     price_decoded => price_decoded
   );
 
-  reg_change : register_change PORT MAP(
+  call_change : change_register PORT MAP(
     reset => reset,
     clock => clock,
-
+    totClear => totClear,
     totLessThanPrice => lessThan,
     totSubPrice => totSubPrice,
     change => change
   );
 
-  reg_price : register_price PORT MAP(
+  call_tot : tot_register PORT MAP(
     reset => reset,
     clock => clock,
     totLoad => totLoad,

@@ -2,28 +2,29 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY register_change IS
+ENTITY change_register IS
   PORT (
     reset : IN STD_LOGIC;
     clock : IN STD_LOGIC;
 
+    totClear : IN STD_LOGIC;
     totLessThanPrice : IN STD_LOGIC;
     totSubPrice : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
     change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
-END register_change;
+END change_register;
 
-ARCHITECTURE register_change_arch OF register_change IS
+ARCHITECTURE change_register_arch OF change_register IS
 BEGIN
 
-  PROCESS (reset, clock, totLessThanPrice, totSubPrice)
+  PROCESS (reset, clock, totLessThanPrice, totClear, totSubPrice)
   BEGIN
     IF reset = '1' THEN
       change <= b"00000000";
 
     ELSIF rising_edge(clock) THEN
-      IF totLessThanPrice = '1' THEN
+      IF totLessThanPrice = '1' OR totClear = '1' THEN
         change <= b"00000000";
       ELSE
         change <= totSubPrice;
@@ -31,4 +32,4 @@ BEGIN
     END IF;
   END PROCESS;
 
-END ARCHITECTURE register_change_arch;
+END ARCHITECTURE change_register_arch;

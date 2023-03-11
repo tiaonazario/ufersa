@@ -14,6 +14,9 @@ END adder;
 ARCHITECTURE adder_arch OF adder IS
 
 BEGIN
-  sum <= STD_LOGIC_VECTOR(unsigned(tot) + unsigned(amount));
+  PROCESS (tot, amount)
+  BEGIN
+    sum <= STD_LOGIC_VECTOR(unsigned(tot) + unsigned(amount));
+  END PROCESS;
 
 END ARCHITECTURE adder_arch;

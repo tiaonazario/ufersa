@@ -15,7 +15,13 @@ ARCHITECTURE comparator_arch OF comparator IS
 
 BEGIN
 
-  totLessThanPrice <= '1' WHEN tot < price ELSE
-    '0';
+  PROCESS (tot, price)
+  BEGIN
+    IF tot < price THEN
+      totLessThanPrice <= '1';
+    ELSE
+      totLessThanPrice <= '0';
+    END IF;
+  END PROCESS;
 
 END ARCHITECTURE comparator_arch;

@@ -13,7 +13,7 @@ END price_decoder;
 ARCHITECTURE price_decoder_arch OF price_decoder IS
 BEGIN
 
-  PROCESS
+  PROCESS (price)
   BEGIN
     CASE(price) IS
       WHEN "01" => price_decoded <= b"00000101"; -- 50 centavos

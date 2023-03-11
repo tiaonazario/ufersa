@@ -13,7 +13,7 @@ END ENTITY coin_decoder;
 ARCHITECTURE coin_decoder_arch OF coin_decoder IS
 BEGIN
 
-  PROCESS
+  PROCESS (amount)
   BEGIN
     CASE amount IS
       WHEN "01" => amount_decoded <= b"00000101"; -- 50 centavos
