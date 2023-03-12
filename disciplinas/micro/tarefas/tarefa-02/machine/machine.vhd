@@ -10,7 +10,9 @@ ENTITY machine IS
     coin : IN STD_LOGIC;
     amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     price : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    speed : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
+    fraud : OUT STD_LOGIC;
     change : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     detect : OUT STD_LOGIC
   );
@@ -24,7 +26,9 @@ ARCHITECTURE machine_arch OF machine IS
       clock : IN STD_LOGIC;
       coin : IN STD_LOGIC;
       totLessThanPrice : IN STD_LOGIC;
+      speed : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 
+      fraud : OUT STD_LOGIC;
       totLoad : OUT STD_LOGIC;
       totClear : OUT STD_LOGIC;
       detect : OUT STD_LOGIC
@@ -57,6 +61,8 @@ BEGIN
     clock => clock,
     coin => coin,
     totLessThanPrice => totLessThanPrice,
+    speed => speed,
+    fraud => fraud,
     totLoad => totLoad,
     totClear => totClear,
     detect => detect
