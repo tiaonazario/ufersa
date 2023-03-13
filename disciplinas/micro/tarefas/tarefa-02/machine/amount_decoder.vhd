@@ -2,15 +2,15 @@ LIBRARY IEEE;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY coin_decoder IS
+ENTITY amount_decoder IS
   PORT (
     amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 
     amount_decoded : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
-END ENTITY coin_decoder;
+END ENTITY amount_decoder;
 
-ARCHITECTURE coin_decoder_arch OF coin_decoder IS
+ARCHITECTURE amount_decoder_arch OF amount_decoder IS
 BEGIN
 
   PROCESS (amount)
@@ -22,4 +22,4 @@ BEGIN
     END CASE;
   END PROCESS;
 
-END ARCHITECTURE coin_decoder_arch;
+END ARCHITECTURE amount_decoder_arch;

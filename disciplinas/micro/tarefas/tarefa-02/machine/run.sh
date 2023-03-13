@@ -5,8 +5,8 @@ set -e
 echo "Step 1 - Analysis of description files."
 
 ghdl -a adder.vhd
+ghdl -a amount_decoder.vhd
 ghdl -a change_register.vhd
-ghdl -a coin_decoder.vhd
 ghdl -a comparator.vhd
 ghdl -a control.vhd
 ghdl -a machine.vhd

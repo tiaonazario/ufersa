@@ -56,7 +56,7 @@ BEGIN
     clock <= '0';
     coin <= '0';
     amount <= b"00";
-    price <= b"10";
+    price <= b"01";
     speed <= b"00000000";
 
     WAIT FOR 5 ns;
@@ -68,38 +68,10 @@ BEGIN
     WAIT FOR 10 ns;
     clock <= NOT clock; -- subida
 
-    amount <= b"10";
+    amount <= b"01";
     speed <= b"00000101";
     coin <= '1';
 
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- decida
-
-    -- ..................................
-    -- SOMAR
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- subida
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- decida
-
-    -- ..................................
-    -- ESPERAR
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- subida
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- decida
-
-    -- ..................................
-    -- SOMAR
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- subida
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- decida
-
-    -- ..................................
-    -- ESPERAR
-    WAIT FOR 10 ns;
-    clock <= NOT clock; -- subida
     WAIT FOR 10 ns;
     clock <= NOT clock; -- decida
 
@@ -124,6 +96,7 @@ BEGIN
     -- FORNECER
     WAIT FOR 10 ns;
     clock <= NOT clock; -- subida
+
     WAIT FOR 10 ns;
     clock <= NOT clock; -- decida
 

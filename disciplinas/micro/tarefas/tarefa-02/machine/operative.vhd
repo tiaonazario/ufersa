@@ -19,13 +19,13 @@ END operative;
 
 ARCHITECTURE operative_arch OF operative IS
 
-  COMPONENT coin_decoder IS
+  COMPONENT amount_decoder IS
     PORT (
       amount : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 
       amount_decoded : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
-  END COMPONENT coin_decoder;
+  END COMPONENT amount_decoder;
 
   COMPONENT price_decoder IS
     PORT (
@@ -97,7 +97,7 @@ ARCHITECTURE operative_arch OF operative IS
 
 BEGIN
 
-  deco_amount : coin_decoder PORT MAP(
+  deco_amount : amount_decoder PORT MAP(
     amount => amount,
     amount_decoded => amount_decoded
   );
